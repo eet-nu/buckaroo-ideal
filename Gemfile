@@ -7,6 +7,9 @@ gemspec
 group :development do
   gem 'rake'
   
+  # Documentation:
+  gem 'yard'
+  
   # Testing libraries:
   gem 'rspec'
   gem 'vcr'
@@ -20,6 +23,7 @@ group :development do
   gem 'guard'
   gem 'guard-bundler'
   gem 'guard-rspec'
+  gem 'guard-yard'
   gem 'rb-fsevent'
   gem 'rb-readline'
   gem 'fuubar'
