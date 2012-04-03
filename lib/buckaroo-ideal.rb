@@ -1,7 +1,8 @@
-require "buckaroo-ideal/version"
+$LOAD_PATH << File.expand_path('..', __FILE__)
 
 module Buckaroo
   module Ideal
-    autoload :Config, 'buckaroo-ideal/config'
+    autoload :VERSION, 'buckaroo-ideal/version'
+    autoload :Config,  'buckaroo-ideal/config'
   end
 end
