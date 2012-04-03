@@ -1,4 +1,4 @@
-# Buckaroo::Ideal
+# Buckaroo::Ideal [![Build Status](https://secure.travis-ci.org/eet-nu/buckaroo-ideal.png)][Travis CI] [![Dependency Status](https://gemnasium.com/eet-nu/buckaroo-ideal.png)][Gemnasium]
 
 A simple Ruby library that aids you in handling iDEAL transactions via the [Buckaroo iDEAL gateway].
 
@@ -34,4 +34,6 @@ TODO: Write usage instructions here
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
+[Travis CI]: http://travis-ci.org/eet-nu/buckaroo-ideal
+[Gemnasium]: https://gemnasium.com/eet-nu/buckaroo-ideal
 [Buckaroo iDEAL Gateway]: http://www.buckaroo.nl/zakelijk/producten/betaalmethoden/ideal.aspx
