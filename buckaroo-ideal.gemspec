@@ -3,10 +3,10 @@ require File.expand_path('../lib/buckaroo-ideal/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Tom-Eric Gerritsen"]
-  gem.email         = ["ik@tom-eric.info"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.email         = ["tomeric@eet.nu"]
+  gem.description   = %q{A simple Ruby library that aids you in handling iDEAL transactions via the Buckaroo iDEAL gateway.}
+  gem.summary       = %q{Integrate with the Buckaroo iDEAL API.}
+  gem.homepage      = "http://github.com/eet-nu/buckaroo-ideal"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
