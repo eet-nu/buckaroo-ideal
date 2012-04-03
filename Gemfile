@@ -5,6 +5,8 @@ gemspec
 
 # Specifiy the development dependencies here:
 group :development do
+  gem 'rake'
+  
   # Testing libraries:
   gem 'rspec'
   gem 'vcr'
