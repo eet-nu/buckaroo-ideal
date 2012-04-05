@@ -2,6 +2,7 @@ require 'rb-readline'
 
 guard 'bundler' do
   watch('Gemfile')
+  watch('buckaroo-ideal.gemspec')
 end
 
 guard 'rspec', version: 2, cli: '--format Fuubar --colour' do
