@@ -5,6 +5,7 @@ module Buckaroo
     autoload :VERSION,        'buckaroo-ideal/version'
     autoload :Config,         'buckaroo-ideal/config'
     autoload :Order,          'buckaroo-ideal/order'
+    autoload :OrderSignature, 'buckaroo-ideal/order_signature'
     autoload :Util,           'buckaroo-ideal/util'
   end
 end
