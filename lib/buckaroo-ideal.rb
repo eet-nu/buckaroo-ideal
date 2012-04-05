@@ -5,5 +5,6 @@ module Buckaroo
     autoload :VERSION,        'buckaroo-ideal/version'
     autoload :Config,         'buckaroo-ideal/config'
     autoload :Order,          'buckaroo-ideal/order'
+    autoload :Util,           'buckaroo-ideal/util'
   end
 end
