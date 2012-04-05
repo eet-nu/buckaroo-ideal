@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "buckaroo-ideal"
   gem.require_paths = ["lib"]
   gem.version       = Buckaroo::Ideal::VERSION
+  
+  gem.add_dependency 'active_support'
 end
