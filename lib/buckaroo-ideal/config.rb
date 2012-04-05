@@ -1,7 +1,8 @@
 module Buckaroo
   module Ideal
     #
-    # Configuration singleton for storing settings required for making transactions.
+    # Configuration singleton for storing settings required for making
+    # transactions.
     #
     class Config
       class << self
