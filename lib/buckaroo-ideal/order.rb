@@ -16,9 +16,11 @@ module Buckaroo
         }
       end
       
-      delegate :merchant_key, # The configured merchant_key
-               :test_mode,    # The configured test_mode
-               to: Config
+      # @return [Boolean] The configured test_mode in +Buckaroo::Ideal::Config+
+      delegate :test_mode, to: Config
+      
+      # @return [String] The configured merchant_key in +Buckaroo::Ideal::Config+
+      delegate :merchant_key, to: Config
       
       # @return [Float] The total amount that this order is for
       attr_accessor :amount
@@ -62,7 +64,7 @@ module Buckaroo
       # @return [String] The URL the user will be redirected to after an error
       #   occured during the transaction
       attr_accessor :error_url
-
+      
       # Defaults to the configured +Buckaroo::Ideal::Config.return_method+, but
       # can be overwritten in the +Order+ instance.
       #
