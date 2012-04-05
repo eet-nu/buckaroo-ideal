@@ -1,8 +1,8 @@
-#
-# Configuration singleton for storing settings required for making transactions.
-#
 module Buckaroo
   module Ideal
+    #
+    # Configuration singleton for storing settings required for making transactions.
+    #
     class Config
       class << self
         # The merchant-key is supllied by Buckaroo. Every application MUST have
@@ -43,8 +43,8 @@ module Buckaroo
         attr_accessor :return_method
         
         # There are 2 styles that you can use to integrate Buckaroo iDEAL:
-        #  * POPUP - The transaction is performed in a popup
-        #  * PAGE  - The transaction is performed in the original window
+        # * POPUP - The transaction is performed in a popup
+        # * PAGE  - The transaction is performed in the original window
         #
         # @return [String] The style that is being used
         attr_accessor :style
