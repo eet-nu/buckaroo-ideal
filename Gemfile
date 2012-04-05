@@ -23,7 +23,6 @@ group :development do
   gem 'guard'
   gem 'guard-bundler'
   gem 'guard-rspec'
-  gem 'guard-yard'
   gem 'rb-fsevent'
   gem 'rb-readline'
   gem 'fuubar'

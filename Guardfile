@@ -11,8 +11,3 @@ guard 'rspec', version: 2, cli: '--format Fuubar --colour' do
   watch(%r{lib/.+\.rb})        { "spec" }
   watch('spec/spec_helper.rb') { "spec" }
 end
-
-guard 'yard', stdout: '/dev/null', stderr: '/dev/null' do
-  watch('README.md')
-  watch(%r{lib/.+\.rb})
-end
