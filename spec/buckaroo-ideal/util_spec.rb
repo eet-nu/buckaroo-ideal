@@ -20,11 +20,11 @@ describe Buckaroo::Ideal::Util do
   end
   
   describe '#to_numeric_boolean' do
-    it 'returns "true" to "1"' do
+    it 'converts "true" to "1"' do
       Buckaroo::Ideal::Util.to_numeric_boolean(true).should == 1
     end
     
-    it 'returns "false" to "0"' do
+    it 'converts "false" to "0"' do
       Buckaroo::Ideal::Util.to_numeric_boolean(false).should == 0
     end
   end
