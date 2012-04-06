@@ -1,4 +1,4 @@
-require 'unicode_utils'
+require 'transliterator'
 
 module Buckaroo
   module Ideal
@@ -6,8 +6,7 @@ module Buckaroo
       extend self
       
       def to_normalized_string(string)
-        UnicodeUtils.compatibility_decomposition(string)
-                    .gsub(/[^\x00-\x7F]/, '')
+        Transliterator.asciify(string)
       end
       
       def to_cents(amount)

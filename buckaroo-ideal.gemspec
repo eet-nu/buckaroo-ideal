@@ -16,5 +16,5 @@ Gem::Specification.new do |gem|
   gem.version       = Buckaroo::Ideal::VERSION
   
   gem.add_dependency 'activesupport'
-  gem.add_dependency 'unicode_utils'
+  gem.add_dependency 'transliterator'
 end
