@@ -1,3 +1,5 @@
+require 'digest/md5'
+
 module Buckaroo
   module Ideal
     #
@@ -31,6 +33,12 @@ module Buckaroo
       # @return [String] The secret key that is used to sign the order.
       attr_reader :secret
       
+      # @return [Boolean] The configured test_mode in +Buckaroo::Ideal::Config+
+      delegate :test_mode, to: Config
+      
+      # @return [String] The configured merchant_key in +Buckaroo::Ideal::Config+
+      delegate :merchant_key, to: Config
+      
       # Initialize a new +Buckaroo::Ideal::Signature+ instance for the given
       # order.
       #
@@ -46,10 +54,10 @@ module Buckaroo
       
       def signature
         salt = [
-          order.merchant_key,
+          merchant_key,
           to_normalized_string(order.invoice_number),
           to_cents(order.amount),
-          to_numeric_boolean(order.test_mode),
+          to_numeric_boolean(test_mode),
           secret
         ].join
                 

@@ -6,6 +6,11 @@ module Buckaroo
     #
     class Config
       class << self
+        # The gateway URL that is used to post form data to.
+        #
+        # @return [String] The gateway URL
+        attr_accessor :gateway_url
+        
         # The merchant-key is supllied by Buckaroo. Every application MUST have
         # it's own merchant key.
         #
@@ -60,6 +65,7 @@ module Buckaroo
         # Default settings
         def defaults
           {
+            gateway_url:     'https://payment.buckaroo.nl/gateway/payment.asp',
             merchant_key:    nil,
             secret_key:      nil,
             test_mode:       false,

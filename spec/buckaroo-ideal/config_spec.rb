@@ -17,6 +17,10 @@ describe Buckaroo::Ideal::Config do
   
   subject { Buckaroo::Ideal::Config }
   
+  it 'has a gateway_url' do
+    subject.gateway_url.should == 'https://payment.buckaroo.nl/gateway/payment.asp'
+  end
+  
   it 'has a merchant_key' do
     subject.merchant_key.should == 'merchant_key'
   end
