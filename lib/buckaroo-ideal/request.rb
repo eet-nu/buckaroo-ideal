@@ -29,20 +29,20 @@ module Buckaroo
     # +Buckaroo::Ideal::Config+.
     #
     # To access the information required to create a form, instantiate a new
-    # +Buckaroo::Ideal::OrderForm+ with an +Buckaroo::Ideal::Order+ instance:
+    # +Buckaroo::Ideal::Request+ with an +Buckaroo::Ideal::Order+ instance:
     #
-    #     order = Buckaroo::Ideal::Order.new(amount: 100, invoice_number: 'EETNU-123')
-    #     form  = Buckaroo::Ideal::OrderForm.new(order)
+    #     order   = Buckaroo::Ideal::Order.new(amount: 100, invoice_number: 'EETNU-123')
+    #     request = Buckaroo::Ideal::Request.new(order)
     #
     # You can then use the information to create a form. An example in Rails:
     #
-    #     <%= form_tag form.gateway_url do %>
-    #       <% form.parameters.each do |name, value| %>
+    #     <%= form_tag request.gateway_url do %>
+    #       <% request.parameters.each do |name, value| %>
     #         <%= hidden_field_tag name, value %>
     #       <% end %>
     #       <%= submit_tag 'Proceed to payment' %>
     #     <% end %>
-    class OrderForm
+    class Request
       
       attr_reader :order
       
@@ -111,12 +111,12 @@ module Buckaroo
       # @return [Boolean] Autoclose the popup after a transaction
       attr_accessor :autoclose_popup
       
-      # Initialize a new +Buckaroo::Ideal::OrderForm+ instance for the given
+      # Initialize a new +Buckaroo::Ideal::Request+ instance for the given
       # order.
       #
       # @param [Buckaroo::Ideal::Order] The order that needs to be signed.
       # @param [Hash] The settings for this form.
-      # @return [Buckaroo::Ideal::OrderForm] The form for the order instance.
+      # @return [Buckaroo::Ideal::Request] The form for the order instance.
       def initialize(order, settings = {})
         @order = order
         settings = self.class.defaults.merge(settings)

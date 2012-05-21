@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Buckaroo::Ideal::OrderForm do
-  let(:order) { Buckaroo::Ideal::Order.new            }
-  let(:form)  { Buckaroo::Ideal::OrderForm.new(order) }
+describe Buckaroo::Ideal::Request do
+  let(:order)   { Buckaroo::Ideal::Order.new          }
+  let(:request) { Buckaroo::Ideal::Request.new(order) }
   
   before do
     Buckaroo::Ideal::Config.configure(
@@ -19,41 +19,41 @@ describe Buckaroo::Ideal::OrderForm do
   end
   
   it 'has a default language' do
-    form.language.should == 'NL'
+    request.language.should == 'NL'
   end
   
   it 'has a default success_url from the configuration' do
-    form.success_url.should == 'http://example.com/transaction/success'
+    request.success_url.should == 'http://example.com/transaction/success'
   end
   
   it 'has a default reject_url from the configuration' do
-    form.reject_url.should == 'http://example.com/transaction/reject'
+    request.reject_url.should == 'http://example.com/transaction/reject'
   end
   
   it 'has a default error_url from the configuration' do
-    form.error_url.should == 'http://example.com/transaction/error'
+    request.error_url.should == 'http://example.com/transaction/error'
   end
   
   it 'has a default return_method from the configuration' do
-    form.return_method.should == 'GET'
+    request.return_method.should == 'GET'
   end
   
   it 'has a default style from the configuration' do
-    form.style.should == 'POPUP'
+    request.style.should == 'POPUP'
   end
   
   it 'has a default autoclose_popup from the configuration' do
-    form.autoclose_popup.should be_true
+    request.autoclose_popup.should be_true
   end
   
   describe '#gateway_url' do
     it 'returns the configured gateway_url' do
-      form.gateway_url.should == Buckaroo::Ideal::Config.gateway_url
+      request.gateway_url.should == Buckaroo::Ideal::Config.gateway_url
     end
   end
   
   describe '#parameters' do
-    def parameters; form.parameters; end
+    def parameters; request.parameters; end
     
     it 'has a BPE_Merchant with the configured merchant_key' do
       parameters['BPE_Merchant'].should == 'merchant_key'
@@ -82,28 +82,28 @@ describe Buckaroo::Ideal::OrderForm do
     it 'has a BPE_Return_Method with the return_method' do
       parameters['BPE_Return_Method'].should == 'GET'
       
-      form.return_method = 'POST'
+      request.return_method = 'POST'
       parameters['BPE_Return_Method'].should == 'POST'
     end
     
     it 'has a BPE_Style if the style is set' do
       parameters['BPE_Style'].should == 'POPUP'
       
-      form.style = 'PAGE'
+      request.style = 'PAGE'
       parameters['BPE_Style'].should == 'PAGE'
     end
     
     it 'has a BPE_Autoclose_Popup if autoclose_popup is set' do
       parameters['BPE_Autoclose_Popup'].should == 1
       
-      form.autoclose_popup = false
+      request.autoclose_popup = false
       parameters['BPE_Autoclose_Popup'].should == 0
     end
     
     it 'has a generated BPE_Signature2' do
       parameters['BPE_Signature2'].length.should == 32
       
-      form.stub(:signature).and_return('signature')
+      request.stub(:signature).and_return('signature')
       
       parameters['BPE_Signature2'].should == 'signature'
     end
@@ -111,7 +111,7 @@ describe Buckaroo::Ideal::OrderForm do
     it 'has a BPE_Language with the language' do
       parameters['BPE_Language'].should == 'NL'
       
-      form.language = 'DE'
+      request.language = 'DE'
       parameters['BPE_Language'].should == 'DE'
     end
     
@@ -144,26 +144,26 @@ describe Buckaroo::Ideal::OrderForm do
     end
     
     it 'has a BPE_Return_Success if the success_url is set' do
-      form.success_url = nil
+      request.success_url = nil
       parameters.keys.should_not include 'BPE_Return_Success'
       
-      form.success_url = 'http://example.org/'
+      request.success_url = 'http://example.org/'
       parameters['BPE_Return_Success'].should == 'http://example.org/'
     end
     
     it 'has a BPE_Return_Reject if the reject_url is set' do
-      form.reject_url = nil
+      request.reject_url = nil
       parameters.keys.should_not include 'BPE_Return_Reject'
       
-      form.reject_url = 'http://example.org/'
+      request.reject_url = 'http://example.org/'
       parameters['BPE_Return_Reject'].should == 'http://example.org/'
     end
     
     it 'has a BPE_Return_Error if the error_url is set' do
-      form.error_url = nil
+      request.error_url = nil
       parameters.keys.should_not include 'BPE_Return_Error'
       
-      form.error_url = 'http://example.org/'
+      request.error_url = 'http://example.org/'
       parameters['BPE_Return_Error'].should == 'http://example.org/'
     end
   end
