@@ -150,7 +150,7 @@ module Buckaroo
       private
       
       def signature
-        OrderSignature.new(order).signature
+        RequestSignature.new(order).signature
       end
       
       def set(key, value)

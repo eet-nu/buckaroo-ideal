@@ -22,11 +22,11 @@ module Buckaroo
     # * Mode: The +test_mode+ that is set in +Buckaroo::Ideal::Config+.
     #
     # To create a signature for an +Buckaroo::Ideal::Order+, instantiate a new
-    # +Buckaroo::Ideal::OrderSignature+ and provide the order:
+    # +Buckaroo::Ideal::RequestSignature+ and provide the order:
     #
     #     order = Buckaroo::Ideal::Order.new(amount: 100, invoice_number: 'EETNU-123')
     #     signature = Buckaroo::Ideal::Signature.new(order)
-    class OrderSignature
+    class RequestSignature
       
       # @return [Buckaroo::Ideal::Order] The order that is being signed.
       attr_reader :order

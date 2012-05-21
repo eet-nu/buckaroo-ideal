@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Buckaroo::Ideal::OrderSignature do
+describe Buckaroo::Ideal::RequestSignature do
   it 'generates a signature for the given order' do
     order  = mock invoice_number: 'EETNU-12345',
                   amount:         12.50,
@@ -12,7 +12,7 @@ describe Buckaroo::Ideal::OrderSignature do
     Buckaroo::Ideal::Config.stub(:merchant_key)
                            .and_return('merchant_key')
     
-    signature = Buckaroo::Ideal::OrderSignature.new(order, 'secret_key')
+    signature = Buckaroo::Ideal::RequestSignature.new(order, 'secret_key')
     
     expected_salt = [
       'merchant_key', # config.merchant_key
