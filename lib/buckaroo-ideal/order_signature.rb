@@ -1,4 +1,5 @@
 require 'digest/md5'
+require 'active_support/core_ext/module/delegation'
 
 module Buckaroo
   module Ideal
@@ -57,10 +58,11 @@ module Buckaroo
           merchant_key,
           to_normalized_string(order.invoice_number),
           to_cents(order.amount),
+          order.currency,
           to_numeric_boolean(test_mode),
           secret
         ].join
-                
+        
         Digest::MD5.hexdigest(salt)
       end
       alias_method :to_s, :signature
