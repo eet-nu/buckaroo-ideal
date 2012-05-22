@@ -43,9 +43,6 @@ module Buckaroo
     #       <%= submit_tag 'Proceed to payment' %>
     #     <% end %>
     class Request
-      
-      attr_reader :order
-      
       def self.defaults
         {
           language:        'NL',
@@ -66,6 +63,10 @@ module Buckaroo
       
       # @return [String] The configured merchant_key in +Buckaroo::Ideal::Config+
       delegate :merchant_key, to: Config
+      
+      # @return [Buckaroo::Ideal::Order] The order for which the payment request
+      #   is being made
+      attr_reader :order
       
       # @return [String] The language in wich Buckaroo's user interface is
       #   presented.

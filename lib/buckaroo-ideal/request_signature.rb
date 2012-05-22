@@ -31,14 +31,14 @@ module Buckaroo
       # @return [Buckaroo::Ideal::Order] The order that is being signed.
       attr_reader :order
       
-      # @return [String] The secret key that is used to sign the order.
-      attr_reader :secret
-      
       # @return [Boolean] The configured test_mode in +Buckaroo::Ideal::Config+
-      delegate :test_mode, to: Config
+      delegate :test_mode,    to: Config
       
       # @return [String] The configured merchant_key in +Buckaroo::Ideal::Config+
       delegate :merchant_key, to: Config
+      
+      # @return [String] The configured secret_key in +Buckaroo::Ideal::Config+
+      delegate :secret_key,   to: Config
       
       # Initialize a new +Buckaroo::Ideal::Signature+ instance for the given
       # order.
@@ -48,9 +48,8 @@ module Buckaroo
       #   Defaults to the configured +Buckaroo::Ideal::Config.secret_key+.
       # @return [Buckaroo::Ideal::Signature] The signature for the order
       #   instance.
-      def initialize(order, secret_key = Buckaroo::Ideal::Config.secret_key)
+      def initialize(order)
         @order  = order
-        @secret = secret_key
       end
       
       def signature
@@ -60,7 +59,7 @@ module Buckaroo
           to_cents(order.amount),
           order.currency,
           to_numeric_boolean(test_mode),
-          secret
+          secret_key
         ].join
         
         Digest::MD5.hexdigest(salt)
