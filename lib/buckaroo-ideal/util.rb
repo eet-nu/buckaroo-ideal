@@ -21,6 +21,10 @@ module Buckaroo
         boolean ? 1 : 0
       end
       
+      def from_numeric_boolean(number)
+        number.to_i == 1
+      end
+      
       def compact(subject)
         subject = subject.dup
         

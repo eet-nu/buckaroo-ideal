@@ -35,6 +35,18 @@ describe Buckaroo::Ideal::Util do
     end
   end
   
+  describe '#from_numeric_boolean' do
+    it 'converts "1" to "true"' do
+      Buckaroo::Ideal::Util.from_numeric_boolean(1).should   be_true
+      Buckaroo::Ideal::Util.from_numeric_boolean('1').should be_true
+    end
+    
+    it 'converts "0" to "false"' do
+      Buckaroo::Ideal::Util.from_numeric_boolean(0).should   be_false
+      Buckaroo::Ideal::Util.from_numeric_boolean('0').should be_false
+    end
+  end
+  
   describe '#compact' do
     it 'removes keys from hashes if they do not have a value' do
       result = Buckaroo::Ideal::Util.compact({ 'key' => nil })
