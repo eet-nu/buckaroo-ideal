@@ -13,11 +13,12 @@ module Buckaroo
     # The languages supported by Buckaroo's user interface:
     LANGUAGES = %w[ NL EN DE FR ]
     
-    autoload :VERSION,          'buckaroo-ideal/version'
-    autoload :Config,           'buckaroo-ideal/config'
-    autoload :Order,            'buckaroo-ideal/order'
-    autoload :RequestSignature, 'buckaroo-ideal/request_signature'
-    autoload :Request,          'buckaroo-ideal/request'
-    autoload :Util,             'buckaroo-ideal/util'
+    autoload :VERSION,           'buckaroo-ideal/version'
+    autoload :Config,            'buckaroo-ideal/config'
+    autoload :Order,             'buckaroo-ideal/order'
+    autoload :RequestSignature,  'buckaroo-ideal/request_signature'
+    autoload :Request,           'buckaroo-ideal/request'
+    autoload :Status,            'buckaroo-ideal/status'
+    autoload :Util,              'buckaroo-ideal/util'
   end
 end
