@@ -27,6 +27,10 @@ module Buckaroo
           raise UnknownStatusCode
         end
       end
+      
+      def ==(other)
+        other.respond_to?(:code) && other.code == code
+      end
     end
   end
 end

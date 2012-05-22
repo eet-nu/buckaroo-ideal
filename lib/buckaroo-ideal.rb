@@ -16,6 +16,8 @@ module Buckaroo
     autoload :VERSION,           'buckaroo-ideal/version'
     autoload :Config,            'buckaroo-ideal/config'
     autoload :Order,             'buckaroo-ideal/order'
+    autoload :Response,          'buckaroo-ideal/response'
+    autoload :ResponseSignature, 'buckaroo-ideal/response_signature'
     autoload :RequestSignature,  'buckaroo-ideal/request_signature'
     autoload :Request,           'buckaroo-ideal/request'
     autoload :Status,            'buckaroo-ideal/status'

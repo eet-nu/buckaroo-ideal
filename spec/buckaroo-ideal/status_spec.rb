@@ -37,4 +37,10 @@ describe Buckaroo::Ideal::Status do
       }.to raise_error Buckaroo::Ideal::Status::UnknownStatusCode
     end
   end
+  
+  describe '#==' do
+    it 'returns true if the statuses have the same code' do
+      Buckaroo::Ideal::Status.new('000').should == Buckaroo::Ideal::Status.new('000')
+    end
+  end
 end
