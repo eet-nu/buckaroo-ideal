@@ -65,7 +65,7 @@ module Buckaroo
         # Default settings
         def defaults
           {
-            gateway_url:     'https://payment.buckaroo.nl/gateway/payment.asp',
+            gateway_url:     'https://payment.buckaroo.nl/gateway/ideal_payment.asp',
             merchant_key:    nil,
             secret_key:      nil,
             test_mode:       false,
