@@ -7,6 +7,11 @@ describe Buckaroo::Ideal::Util do
       result = Buckaroo::Ideal::Util.to_normalized_string('îñtërnâtiônàlizâtiôn')
       result.should == 'internationalization'
     end
+    
+    it 'keeps dashes' do
+      result = Buckaroo::Ideal::Util.to_normalized_string('order-123')
+      result.should == 'order-123'
+    end
   end
   
   describe '#to_cents' do

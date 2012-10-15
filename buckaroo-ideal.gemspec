@@ -16,9 +16,10 @@ Gem::Specification.new do |gem|
   gem.version       = Buckaroo::Ideal::VERSION
   
   gem.add_dependency 'activesupport'
-  gem.add_dependency 'transliterator'
   
   if RUBY_VERSION < "1.9"
     gem.add_dependency 'fastercsv'
+  else
+    gem.add_dependency 'transliterator'
   end
 end
