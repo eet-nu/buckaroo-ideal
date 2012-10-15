@@ -61,15 +61,13 @@ describe Buckaroo::Ideal::Response do
   
   describe '#valid?' do
     it 'returns true if the signature is valid' do
-      response.signature.stub(:valid?)
-                        .and_return(true)
+      response.signature.stub(:valid?).and_return(true)
       
       response.should be_valid
     end
     
     it 'returns false if the signature if not valid' do
-      response.signature.stub(:valid?)
-                        .and_return(false)
+      response.signature.stub(:valid?).and_return(false)
       
       response.should_not be_valid
     end

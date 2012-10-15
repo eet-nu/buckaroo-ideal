@@ -4,7 +4,7 @@ module Buckaroo
   module Ideal
     class Order
       def self.defaults
-        { currency: 'EUR' }
+        { :currency => 'EUR' }
       end
       
       # @return [Float] The total amount that this order is for

@@ -5,15 +5,15 @@ describe Buckaroo::Ideal::Order do
   
   before do
     Buckaroo::Ideal::Config.configure(
-      merchant_key:   'merchant_key',
-      secret_key:     'secret_key',
-      test_mode:      true,
-      success_url:    'http://example.com/transaction/success',
-      reject_url:     'http://example.com/transaction/reject',
-      error_url:      'http://example.com/transaction/error',
-      return_method:  'GET',
-      style:          'POPUP',
-      autoclose_popup: true
+      :merchant_key    => 'merchant_key',
+      :secret_key      => 'secret_key',
+      :test_mode       => true,
+      :success_url     => 'http://example.com/transaction/success',
+      :reject_url      => 'http://example.com/transaction/reject',
+      :error_url       => 'http://example.com/transaction/error',
+      :return_method   => 'GET',
+      :style           => 'POPUP',
+      :autoclose_popup => true
     )
   end
   
