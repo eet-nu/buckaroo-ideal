@@ -1,5 +1,3 @@
-require 'csv'
-
 module Buckaroo
   module Ideal
     class Status
@@ -26,6 +24,14 @@ module Buckaroo
       }
       
       CSV_FILE = File.expand_path('../../../files/statuscodes.csv', __FILE__)
+      
+      if RUBY_VERSION < "1.9"
+        require 'fastercsv'
+        CSV = ::FasterCSV
+      else
+        require 'csv'
+        CSV = ::CSV
+      end
       
       attr_reader :code, :message
       
