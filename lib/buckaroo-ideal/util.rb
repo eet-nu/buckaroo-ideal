@@ -1,12 +1,26 @@
-require 'transliterator'
-
 module Buckaroo
   module Ideal
     module Util
       extend self
       
-      def to_normalized_string(string)
-        Transliterator.asciify(string.to_s)
+      if RUBY_VERSION < "1.9"
+        
+        require 'iconv'
+        
+        STRIP_ACCENTS_RE = /[\^~"`']/
+        
+        def to_normalized_string(string)
+          Iconv.iconv('US-ASCII//IGNORE//TRANSLIT', 'UTF-8', string).to_s.gsub(STRIP_ACCENTS_RE, '')
+        end
+        
+      else
+        
+        require 'transliterator'
+        
+        def to_normalized_string(string)
+          Transliterator.asciify(string.to_s)
+        end
+        
       end
       
       def to_cents(amount)

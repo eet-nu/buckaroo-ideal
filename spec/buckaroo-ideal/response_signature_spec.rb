@@ -2,14 +2,14 @@ require 'spec_helper'
 
 describe Buckaroo::Ideal::ResponseSignature do
   let(:response) {
-    mock transaction_id: 'transaction_id',
-         timestamp:      'timestamp',
-         invoice_number: 'invoice_number',
-         reference:      'reference',
-         currency:       'EUR',
-         amount:         12.50,
-         status:         mock(code: '101'),
-         test_mode:      true
+    mock :transaction_id => 'transaction_id',
+         :timestamp      => 'timestamp',
+         :invoice_number => 'invoice_number',
+         :reference      => 'reference',
+         :currency       => 'EUR',
+         :amount         => 12.50,
+         :status         => mock(:code => '101'),
+         :test_mode      => true
   }
   
   let(:signature) {
@@ -17,11 +17,11 @@ describe Buckaroo::Ideal::ResponseSignature do
   }
   
   before do
-    Buckaroo::Ideal::Config.stub(:merchant_key)
-                           .and_return('merchant_key')
+    Buckaroo::Ideal::Config.stub(:merchant_key).
+                            and_return('merchant_key')
     
-    Buckaroo::Ideal::Config.stub(:secret_key)
-                           .and_return('secret_key')
+    Buckaroo::Ideal::Config.stub(:secret_key).
+                            and_return('secret_key')
   end
   
   describe '#valid?' do
@@ -50,8 +50,7 @@ describe Buckaroo::Ideal::ResponseSignature do
         'secret_key'      # config.secret_key
       ].join
       
-      Digest::MD5.should_receive(:hexdigest)
-                 .with(expected_salt)
+      Digest::MD5.should_receive(:hexdigest).with(expected_salt)
       
       signature.generate_signature
     end
