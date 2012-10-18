@@ -52,7 +52,7 @@ describe Buckaroo::Ideal::Response do
   end
   
   it 'has a time' do
-    response.time.should == Time.new(2012, 05, 22, 12, 58, 13)
+    response.time.should == Time.local(2012, 05, 22, 12, 58, 13)
   end
   
   it 'has a timestamp' do
