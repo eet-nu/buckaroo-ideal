@@ -52,7 +52,7 @@ describe Buckaroo::Ideal::Response do
   end
   
   it 'has a time' do
-    response.time.should == Time.new(2012, 05, 22, 12, 58, 13)
+    response.time.should == Time.local(2012, 05, 22, 12, 58, 13)
   end
   
   it 'has a timestamp' do
@@ -61,15 +61,13 @@ describe Buckaroo::Ideal::Response do
   
   describe '#valid?' do
     it 'returns true if the signature is valid' do
-      response.signature.stub(:valid?)
-                        .and_return(true)
+      response.signature.stub(:valid?).and_return(true)
       
       response.should be_valid
     end
     
     it 'returns false if the signature if not valid' do
-      response.signature.stub(:valid?)
-                        .and_return(false)
+      response.signature.stub(:valid?).and_return(false)
       
       response.should_not be_valid
     end

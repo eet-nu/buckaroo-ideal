@@ -6,10 +6,10 @@ module Buckaroo
     class ResponseSignature
       
       # @return [String] The configured merchant_key in +Buckaroo::Ideal::Config+
-      delegate :merchant_key, to: Config
+      delegate :merchant_key, :to => Config
       
       # @return [String] The configured secret_key in +Buckaroo::Ideal::Config+
-      delegate :secret_key,   to: Config
+      delegate :secret_key,   :to => Config
       
       # @return [String] The signature that was given in the response
       attr_reader :signature

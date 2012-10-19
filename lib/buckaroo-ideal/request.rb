@@ -45,24 +45,24 @@ module Buckaroo
     class Request
       def self.defaults
         {
-          language:        'NL',
-          success_url:     Config.success_url,
-          reject_url:      Config.reject_url,
-          error_url:       Config.error_url,
-          return_method:   Config.return_method,
-          style:           Config.style,
-          autoclose_popup: Config.autoclose_popup
+          :language        => 'NL',
+          :success_url     => Config.success_url,
+          :reject_url      => Config.reject_url,
+          :error_url       => Config.error_url,
+          :return_method   => Config.return_method,
+          :style           => Config.style,
+          :autoclose_popup => Config.autoclose_popup
         }
       end
       
       # @return [String] The configured gateway_url in +Buckaroo::Ideal::Config+
-      delegate :gateway_url,  to: Config
+      delegate :gateway_url,  :to => Config
       
       # @return [Boolean] The configured test_mode in +Buckaroo::Ideal::Config+
-      delegate :test_mode,    to: Config
+      delegate :test_mode,    :to => Config
       
       # @return [String] The configured merchant_key in +Buckaroo::Ideal::Config+
-      delegate :merchant_key, to: Config
+      delegate :merchant_key, :to => Config
       
       # @return [Buckaroo::Ideal::Order] The order for which the payment request
       #   is being made

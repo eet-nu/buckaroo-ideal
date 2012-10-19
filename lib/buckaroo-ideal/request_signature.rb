@@ -32,13 +32,13 @@ module Buckaroo
       attr_reader :order
       
       # @return [Boolean] The configured test_mode in +Buckaroo::Ideal::Config+
-      delegate :test_mode,    to: Config
+      delegate :test_mode,    :to => Config
       
       # @return [String] The configured merchant_key in +Buckaroo::Ideal::Config+
-      delegate :merchant_key, to: Config
+      delegate :merchant_key, :to => Config
       
       # @return [String] The configured secret_key in +Buckaroo::Ideal::Config+
-      delegate :secret_key,   to: Config
+      delegate :secret_key,   :to => Config
       
       # Initialize a new +Buckaroo::Ideal::Signature+ instance for the given
       # order.

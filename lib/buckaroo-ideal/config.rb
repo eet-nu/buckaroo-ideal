@@ -65,16 +65,16 @@ module Buckaroo
         # Default settings
         def defaults
           {
-            gateway_url:     'https://payment.buckaroo.nl/gateway/ideal_payment.asp',
-            merchant_key:    nil,
-            secret_key:      nil,
-            test_mode:       false,
-            success_url:     nil,
-            reject_url:      nil,
-            error_url:       nil,
-            return_method:   'POST',
-            style:           'PAGE',
-            autoclose_popup: false
+            :gateway_url     =>  'https://payment.buckaroo.nl/gateway/ideal_payment.asp',
+            :merchant_key    =>  nil,
+            :secret_key      =>  nil,
+            :test_mode       =>  false,
+            :success_url     =>  nil,
+            :reject_url      =>  nil,
+            :error_url       =>  nil,
+            :return_method   => 'POST',
+            :style           => 'PAGE',
+            :autoclose_popup => false
           }
         end
         
